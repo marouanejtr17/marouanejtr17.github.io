@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Portfolio – Marouane Jaatar</title>
+<style>
+:root{--bg:#f6f7f9;--card:#fff;--tx:#14181f;--mu:#5b6573;--ac:#0b7a5c;--bd:#e2e6ea;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e1217;--card:#171d25;--tx:#e8ecf1;--mu:#98a3b1;--ac:#3ddc97;--bd:#27303b;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0e1217;--card:#171d25;--tx:#e8ecf1;--mu:#98a3b1;--ac:#3ddc97;--bd:#27303b;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.w{max-width:900px;margin:0 auto;padding:0 20px}
+header.h{padding:56px 0 32px}
+h1{font-size:clamp(2rem,6vw,3rem);margin:0;line-height:1.1}
+.t{color:var(--ac);font-weight:600;font-size:1.2rem;margin:6px 0 14px}
+.c a,.c span{color:var(--mu);margin-right:16px;text-decoration:none;font-size:.95rem;display:inline-block}
+.c a:hover{color:var(--ac)}
+section{padding:28px 0}
+h2{font-size:1.4rem;margin:0 0 16px;display:flex;align-items:center;gap:10px}
+h2:after{content:"";flex:1;height:1px;background:var(--bd)}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:16px 18px;margin-bottom:12px}
+.card h3{margin:0;font-size:1.05rem}
+.m{color:var(--mu);font-size:.9rem}
+.card p{margin:8px 0 0;white-space:pre-line}
+.tag{display:inline-block;background:var(--bg);border:1px solid var(--bd);border-radius:99px;padding:2px 12px;margin:4px 6px 0 0;font-size:.85rem}
+.b{display:inline-block;color:var(--ac);border:1px solid var(--ac);border-radius:6px;padding:0 8px;font-size:.75rem;font-weight:600;margin-left:8px;vertical-align:middle}
+.g{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.g .card{margin:0}
+.e{color:var(--mu);font-style:italic}
+footer{padding:30px 0 80px;color:var(--mu);text-align:center;font-size:.85rem}
+#fab{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));background:var(--ac);color:var(--bg);border:0;border-radius:99px;padding:12px 20px;font:600 15px system-ui;cursor:pointer;z-index:20;box-shadow:0 4px 14px #0004}
+#dr{position:fixed;top:0;right:0;bottom:0;width:min(440px,100%);background:var(--card);border-left:1px solid var(--bd);z-index:30;overflow:auto;padding:calc(16px + env(safe-area-inset-top,0px)) 16px 40px;transform:translateX(100%);transition:transform .25s}
+#dr.o{transform:none}
+#dr h4{margin:22px 0 8px;color:var(--ac);font-size:1rem}
+#dr label{display:block;font-size:.8rem;color:var(--mu);margin:8px 0 2px}
+#dr input,#dr textarea,#dr select{width:100%;padding:8px;border:1px solid var(--bd);border-radius:8px;background:var(--bg);color:var(--tx);font:inherit;font-size:.92rem}
+#dr textarea{min-height:70px;resize:vertical}
+.it{border:1px solid var(--bd);border-radius:10px;padding:4px 12px 12px;margin-bottom:10px}
+button.s{background:var(--bg);color:var(--tx);border:1px solid var(--bd);border-radius:8px;padding:6px 12px;cursor:pointer;font:inherit;font-size:.85rem;margin:6px 6px 0 0}
+button.r{color:#d33;border-color:#d33}
+.top{display:flex;justify-content:space-between;align-items:center}
+</style>
+</head>
+<body>
+<div class="w">
+<header class="h" id="hd"></header>
+<main id="mn"></main>
+<footer id="ft"></footer>
+</div>
+<button id="fab">✏️ Modifier</button>
+<aside id="dr" aria-label="Éditeur"></aside>
+<script>
+var D0={
+perso:{nom:"Marouane Jaatar",titre:"Ingénieur en cybersécurité (cycle ingénieur, UIR)",bio:"Étudiant en cybersécurité, je conçois des outils de détection et de remédiation de vulnérabilités et je pratique le pentest en laboratoire. Curieux et rigoureux, je recherche un stage de fin d’études (PFE) en sécurité offensive/défensive, réponse aux incidents et sécurité réseau.",email:"marouane.jaatar@uir.ac.ma",tel:"+212 7 62 96 63 39",ville:"Nador, Maroc",linkedin:"https://www.linkedin.com/in/marouane-jaatar-135252349",github:"https://github.com/marouanejtr17"},
+parcours:[
+{type:"Formation",titre:"Cycle d’ingénierie en génie informatique – Cybersécurité",lieu:"Université Internationale de Rabat (UIR)",periode:"2024 – 2027",desc:""},
+{type:"Formation",titre:"Cycle préparatoire intégré",lieu:"Université Internationale de Rabat (UIR)",periode:"2022 – 2024",desc:""},
+{type:"Expérience",titre:"Stage – Direction des Systèmes d’Information",lieu:"Poste Maroc (Al Barid Bank)",periode:"Juin 2026",desc:"Conception d’un scanner de vulnérabilités défensif en Python : scan TCP, identification des CVE via l’API NVD, audit web, correction automatique par SSH et alertes au SOC via une orchestration SOAR avec Shuffle."},
+{type:"Expérience",titre:"Stage – Développement web",lieu:"Bmondial",periode:"Juil. – Août 2025",desc:"Application web OCR en PHP avec Tesseract et XAMPP pour automatiser l’extraction de texte à partir d’images."},
+{type:"Expérience",titre:"Stage ouvrier – Infrastructures et support informatique",lieu:"Banque Populaire, Nador",periode:"Juil. – Août 2024",desc:"Maintenance et administration des systèmes IT (serveurs, réseaux, sécurité), assistance aux utilisateurs, Microsoft 365 et Azure."}],
+projets:[
+{type:"Professionnel",titre:"Scanner de vulnérabilités défensif",desc:"Pipeline Python/Flask : détection des failles réseau, corrélation CVE (API NVD), remédiation automatisée par SSH, alertes SOAR via Shuffle.",tags:"Python, Flask, NVD, SOAR, Shuffle"},
+{type:"Académique",titre:"OSINT Cyber Threat Intelligence",desc:"Système basé sur l’OSINT pour la détection précoce de campagnes de cybermenaces : collecte de données publiques, extraction d’IoCs, analyse de tendances et génération d’alertes.",tags:"OSINT, CTI, IoCs"},
+{type:"Académique",titre:"OS Security",desc:"Laboratoire Windows, Linux et Kali pour simuler des attaques et identifier les vulnérabilités des serveurs, puis durcissement des configurations (mises à jour, restrictions d’accès, services désactivés).",tags:"Active Directory, Kali Linux, Durcissement"},
+{type:"Académique",titre:"Session Hijacking Security Project",desc:"Étude des attaques de détournement de session, de leurs impacts sur les applications web et des protections : sécurisation des cookies, gestion des sessions, bonnes pratiques réseau.",tags:"Web, Sessions, Cookies"},
+{type:"Académique",titre:"AI Recipe Generator",desc:"Système d’IA utilisant RAG et l’API Spoonacular pour générer des recettes personnalisées à partir des ingrédients disponibles.",tags:"RAG, IA, API"},
+{type:"Professionnel",titre:"Application web OCR",desc:"Application web OCR en PHP avec Tesseract et XAMPP pour automatiser l’extraction de texte à partir d’images.",tags:"PHP, Tesseract, XAMPP, IA"}],
+competences:["Cryptographie","Sécurité réseau et systèmes","Kali Linux","Nmap","Metasploit","Wireshark","Analyse de logs","CVE / CVSS","OSINT","Windows / Linux / Active Directory","Python","Docker","Shuffle SOAR","VMware / VirtualBox"],
+certifs:[{titre:"AWS Academy Cloud Foundations",org:"Amazon Web Services (AWS)",date:"Octobre 2026",lien:""},{titre:"Introduction to Critical Infrastructure Protection",org:"OPSWAT Academy",date:"Septembre 2026",lien:""}],
+langues:[{nom:"Amazigh",niveau:"Langue maternelle"},{nom:"Arabe",niveau:"Langue maternelle"},{nom:"Français",niveau:"Bien"},{nom:"Anglais",niveau:"Bien"},{nom:"Espagnol",niveau:"Notions"}]
+};
+var F={
+perso:[["nom","Nom complet"],["titre","Titre / accroche"],["bio","Présentation","a"],["email","E-mail"],["tel","Téléphone"],["ville","Ville"],["linkedin","LinkedIn (URL)"],["github","GitHub (URL)"]],
+parcours:[["type","Type","s:Formation,Expérience"],["titre","Intitulé"],["lieu","Établissement / entreprise"],["periode","Période"],["desc","Description","a"]],
+projets:[["type","Catégorie","s:Académique,Professionnel"],["titre","Titre"],["desc","Description","a"],["tags","Technologies (séparées par des virgules)"]],
+certifs:[["titre","Certification"],["org","Organisme"],["date","Date d’obtention"],["lien","Lien (URL)"]],
+langues:[["nom","Langue"],["niveau","Niveau"]]
+};
+var N={parcours:"Parcours",projets:"Projets",certifs:"Certifications",langues:"Langues"};
+var D=null;
+try{D=JSON.parse(localStorage.getItem("pf")||"null")}catch(e){}
+if(!D||!D.perso)D=JSON.parse(JSON.stringify(D0));
+function save(){try{localStorage.setItem("pf",JSON.stringify(D))}catch(e){}}
+function x(s){return String(s==null?"":s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+function url(u){return /^https?:\/\//i.test(u)?x(u):""}
+function tags(s){return String(s||"").split(",").map(function(t){return t.trim()}).filter(Boolean).map(function(t){return '<span class="tag">'+x(t)+"</span>"}).join("")}
+function render(){
+var p=D.perso,h='<h1>'+x(p.nom)+'</h1><div class="t">'+x(p.titre)+'</div><p>'+x(p.bio)+'</p><div class="c">';
+if(p.email)h+='<a href="mailto:'+x(p.email)+'">✉ '+x(p.email)+'</a>';
+if(p.tel)h+='<span>☎ '+x(p.tel)+'</span>';
+if(p.ville)h+='<span>📍 '+x(p.ville)+'</span>';
+if(url(p.linkedin))h+='<a href="'+url(p.linkedin)+'" target="_blank" rel="noopener">LinkedIn</a>';
+if(url(p.github))h+='<a href="'+url(p.github)+'" target="_blank" rel="noopener">GitHub</a>';
+document.getElementById("hd").innerHTML=h+"</div>";
+var m="";
+function sec(t,body){return"<section><h2>"+t+"</h2>"+body+"</section>"}
+function par(type){var l=D.parcours.filter(function(i){return i.type==type});return l.length?l.map(function(i){return'<div class="card"><h3>'+x(i.titre)+'</h3><div class="m">'+x(i.lieu)+(i.periode?" · "+x(i.periode):"")+"</div>"+(i.desc?"<p>"+x(i.desc)+"</p>":"")+"</div>"}).join(""):'<p class="e">Aucun élément.</p>'}
+m+=sec("Parcours académique",par("Formation"));
+m+=sec("Expérience professionnelle",par("Expérience"));
+m+=sec("Projets",D.projets.length?'<div class="g">'+D.projets.map(function(i){return'<div class="card"><h3>'+x(i.titre)+'<span class="b">'+x(i.type)+"</span></h3><p>"+x(i.desc)+"</p><div>"+tags(i.tags)+"</div></div>"}).join("")+"</div>":'<p class="e">Aucun projet.</p>');
+m+=sec("Compétences",(D.competences||[]).map(function(t){return'<span class="tag">'+x(t)+"</span>"}).join("")||'<p class="e">Aucune compétence.</p>');
+m+=sec("Certifications",D.certifs.length?'<div class="g">'+D.certifs.map(function(i){var l=url(i.lien);return'<div class="card"><h3>'+x(i.titre)+'</h3><div class="m">'+x(i.org)+(i.date?" · "+x(i.date):"")+"</div>"+(l?'<p><a href="'+l+'" target="_blank" rel="noopener" style="color:var(--ac)">Voir la certification</a></p>':"")+"</div>"}).join("")+"</div>":'<p class="e">Aucune certification pour l’instant. Ajoute-les via « Modifier ».</p>');
+m+=sec("Langues",D.langues.map(function(i){return'<span class="tag">'+x(i.nom)+" – "+x(i.niveau)+"</span>"}).join(""));
+document.getElementById("mn").innerHTML=m;
+document.getElementById("ft").textContent="© "+new Date().getFullYear()+" "+p.nom;
+document.title="Portfolio – "+p.nom;
+}
+function fld(s,i,f,v){
+var a=i===null?"":' data-i="'+i+'"',at=' data-s="'+s+'"'+a+' data-k="'+f[0]+'"',o="";
+if(f[2]&&f[2][0]=="s"){o='<select'+at+'>'+f[2].slice(2).split(",").map(function(c){return"<option"+(c==v?" selected":"")+">"+c+"</option>"}).join("")+"</select>"}
+else if(f[2]=="a")o='<textarea'+at+'>'+x(v)+"</textarea>";
+else o='<input'+at+' value="'+x(v)+'">';
+return"<label>"+f[1]+"</label>"+o;
+}
+function editor(){
+var h='<div class="top"><strong>Éditeur du portfolio</strong><button class="s" data-close>Fermer ✕</button></div><h4>Informations personnelles</h4>';
+F.perso.forEach(function(f){h+=fld("perso",null,f,D.perso[f[0]])});
+h+='<h4>Compétences</h4><label>Séparées par des virgules</label><textarea data-s="competences">'+x((D.competences||[]).join(", "))+"</textarea>";
+["parcours","projets","certifs","langues"].forEach(function(s){
+h+="<h4>"+N[s]+"</h4>";
+D[s].forEach(function(it,i){
+h+='<div class="it">';F[s].forEach(function(f){h+=fld(s,i,f,it[f[0]])});
+h+='<button class="s r" data-del="'+s+'" data-i="'+i+'">Supprimer</button></div>'});
+h+='<button class="s" data-add="'+s+'">+ Ajouter</button>';
+});
+h+='<h4>Sauvegarde</h4><p class="m">Les modifications sont enregistrées dans ce navigateur. Copie le texte ci-dessous pour le conserver ou le recharger ailleurs.</p><textarea id="js" style="min-height:90px"></textarea><div><button class="s" id="ex">Exporter</button><button class="s" id="im">Importer</button><button class="s r" id="rs">Réinitialiser</button></div>';
+document.getElementById("dr").innerHTML=h;
+}
+var dr=document.getElementById("dr");
+dr.addEventListener("input",function(e){
+var t=e.target,s=t.dataset.s;if(!s)return;
+if(s=="competences")D.competences=t.value.split(",").map(function(a){return a.trim()}).filter(Boolean);
+else if(s=="perso")D.perso[t.dataset.k]=t.value;
+else D[s][+t.dataset.i][t.dataset.k]=t.value;
+save();render();
+});
+dr.addEventListener("click",function(e){
+var t=e.target,d=t.dataset;
+if(d.close!==undefined){dr.classList.remove("o");return}
+if(d.add){var o={};F[d.add].forEach(function(f){o[f[0]]=f[2]&&f[2][0]=="s"?f[2].slice(2).split(",")[0]:""});D[d.add].push(o);save();render();editor();return}
+if(d.del){if(confirm("Supprimer cet élément ?")){D[d.del].splice(+d.i,1);save();render();editor()}return}
+if(t.id=="ex"){document.getElementById("js").value=JSON.stringify(D,null,1)}
+if(t.id=="im"){try{var n=JSON.parse(document.getElementById("js").value);if(!n.perso)throw 0;D=n;save();render();editor()}catch(err){alert("JSON invalide.")}}
+if(t.id=="rs"&&confirm("Revenir aux données d’origine ?")){D=JSON.parse(JSON.stringify(D0));save();render();editor()}
+});
+document.getElementById("fab").onclick=function(){editor();dr.classList.add("o")};
+render();
+</script>
+</body>
+</html>
